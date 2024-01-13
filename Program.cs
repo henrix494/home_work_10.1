@@ -1,5 +1,3 @@
-﻿Console.WriteLine("Enter the first id number");
-int ids =int.Parse( Console.ReadLine());
 int totalValid = 0;
 
 for (int i = 1; i < 9; i++)
@@ -7,10 +5,10 @@ for (int i = 1; i < 9; i++)
 {
     Console.WriteLine($"Enter the {i} id number");
     
-        int id = int.Parse(Console.ReadLine());
+    int id = int.Parse(Console.ReadLine());
     if (i % 2 == 0)
     {
-        if (id * 2 > 10)
+        if (id * 2 >= 10)
             { 
             totalValid += (id * 2/10) + (id*2%10);
             continue;  
@@ -22,9 +20,15 @@ for (int i = 1; i < 9; i++)
     }
     
 }
+Console.WriteLine("Enter the first id number");
 
-if ((10 - (totalValid % 10) + totalValid) - totalValid == ids)
+int ids = int.Parse(Console.ReadLine());
+
+if ((10 - (totalValid % 10)) == ids || totalValid % 10 == 0 && ids == totalValid % 10)
 {
     Console.WriteLine("good");
 }
-else { Console.WriteLine("bad"); }
+
+else {
+    Console.WriteLine("bad");
+}
